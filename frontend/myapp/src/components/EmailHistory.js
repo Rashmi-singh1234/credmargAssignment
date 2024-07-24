@@ -40,7 +40,7 @@ const EmailHistory = () => {
               </List.Item>
             ))
           ) : (
-            <List.Item>No emails found</List.Item>
+            <List.Item>No emails are found</List.Item>
           )}
         </List>
       </Segment>
