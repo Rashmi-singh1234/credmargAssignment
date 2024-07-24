@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, TextArea, Segment } from 'semantic-ui-react';
 
+const apiBaseUrl = process.env.API_BASE_URL;
+
 const EmailForm = () => {
   const [recipientEmails, setRecipientEmails] = useState('');
 
@@ -9,7 +11,7 @@ const EmailForm = () => {
     e.preventDefault();
     try {
       const emails = recipientEmails.split(',').map(email => email.trim());
-      await axios.post('/api/emails/send-email', emails);
+      await axios.post('http://localhost:8080/api/vendors/sendemail', emails);
       alert('Email sent successfully!');
       setRecipientEmails('');
     } catch (error) {

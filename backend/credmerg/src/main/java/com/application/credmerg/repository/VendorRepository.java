@@ -6,4 +6,6 @@ import com.application.credmerg.entity.Vendor;
 
 public interface VendorRepository extends JpaRepository<Vendor,Long>{
 
+	Vendor findByEmail(String email);
+
 }

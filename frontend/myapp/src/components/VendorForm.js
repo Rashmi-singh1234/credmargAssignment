@@ -11,7 +11,7 @@ const VendorForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/vendors', vendorData);
+      await axios.post('http://localhost:8080/api/vendors/add', vendorData);
       alert('Vendor added successfully!');
       setVendorData({
         name: '',

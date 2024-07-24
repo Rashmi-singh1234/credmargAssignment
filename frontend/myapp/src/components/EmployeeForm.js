@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const apiBaseUrl = process.env.API_BASE_URL;
+
 const EmployeeForm = () => {
   const [employeeData, setEmployeeData] = useState({
     name: '',
@@ -12,7 +14,7 @@ const EmployeeForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/employees', employeeData);
+      await axios.post('http://localhost:8080/api/employees/add', employeeData);
       alert('Employee added successfully!');
       setEmployeeData({
         name: '',

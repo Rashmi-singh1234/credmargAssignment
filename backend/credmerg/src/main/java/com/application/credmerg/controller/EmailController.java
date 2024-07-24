@@ -3,6 +3,7 @@ package com.application.credmerg.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,18 +16,14 @@ import com.application.credmerg.service.EmailService;
 
 @RestController
 @RequestMapping("/api/emails")
+@CrossOrigin(origins = "http://localhost:3000")
 public class EmailController {
     @Autowired
     private EmailService service;
 
-    @PostMapping
-    public Email sendEmail(@RequestBody EmailRequest request) {
-        String body = "Sending payments to vendor " + request.getName() + " at upi " + request.getUpi();
-        return service.sendEmail(request.getRecipient(), "Payment Notification", body);
+    @GetMapping("/findemails")
+    public List<Email> getAllEmails() {
+        return service.getAll();
     }
 
-    @GetMapping
-    public List<Email> getAllEmails() {
-        return service.findAll();
-    }
 }

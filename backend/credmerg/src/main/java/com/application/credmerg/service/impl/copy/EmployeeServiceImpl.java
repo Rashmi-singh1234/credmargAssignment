@@ -17,14 +17,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Employee save(Employee emp) {
-		dao.save(emp);
-        return emp;
+		return dao.save(emp);
 	}
 
 	@Override
 	public List<Employee> findAll() {
-		List<Employee> empList=dao.findAll();
-		return empList;
+		return dao.findAll();
 	}
 
 
