@@ -62,7 +62,7 @@ const EmployeeForm = () => {
       <input type="email" name="email" placeholder="Email" value={employeeData.email} onChange={handleChange} required />
       </div>
       <button className="ui button blue">Add</button>
-      <button className="ui button blue" onClick={handleView}>View</button>
+      <button className="ui button blue" onClick={handleView}>View Employees</button>
     </form>
     </div>
   );

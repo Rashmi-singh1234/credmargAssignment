@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Container, Header, List, Message, Segment ,Label} from 'semantic-ui-react';
 
 const EmployeeData = () => {
   const [employees, setEmployees] = useState([]);
@@ -20,6 +21,7 @@ const EmployeeData = () => {
   }, []);
 
   return (
+    /*
     <div>
       <h2>Employee Data</h2>
       {error && <p>{error}</p>}
@@ -36,7 +38,29 @@ const EmployeeData = () => {
           <li>No employees Added</li>
         )}
       </ul>
-    </div>
+    </div>*/
+    <Container>
+      <Segment>
+        <Header as="h2">Employee Data</Header>
+        {error && <Message error content={error} />}
+        <List divided relaxed>
+          {employees.length > 0 ? (
+            employees.map((employee) => (
+              <List.Item key={employee.id}>
+                <List.Content>
+                  <Label size="large">Name:</Label> {employee.name} &nbsp;
+                  <Label size="large">Designation</Label> {employee.designation} &nbsp;
+                  <Label size="large">CTC</Label> {employee.ctc}
+                  <Label size="large">Email</Label> {employee.email}
+                </List.Content>
+              </List.Item>
+            ))
+          ) : (
+            <List.Item>No employees added</List.Item>
+          )}
+        </List>
+      </Segment>
+    </Container>
   );
 };
 

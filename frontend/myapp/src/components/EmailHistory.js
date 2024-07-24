@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Container, Header, List, Message, Segment ,Label} from 'semantic-ui-react';
 
 const EmailHistory = () => {
   const [emails, setEmails] = useState([]);
@@ -20,24 +21,30 @@ const EmailHistory = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Email History</h2>
-      {error && <p>{error}</p>}
-      <ul>
-        {emails.length > 0 ? (
-          emails.map((email) => (
-            <li key={email.id}>
-              <strong>Recipient:</strong> {email.recipient} <br />
-              <strong>Subject:</strong> {email.subject} <br />
-              <strong>Body:</strong> {email.body} <br />
-              <strong>Sent At:</strong> {new Date(email.sentAt).toLocaleString()}
-            </li>
-          ))
-        ) : (
-          <li>No emails found</li>
-        )}
-      </ul>
-    </div>
+    <Container>
+      <Segment>
+        <Header as='h2'>Email History</Header>
+        {error && <Message error content={error} />}
+        <List divided relaxed>
+          {emails.length > 0 ? (
+            emails.map((email) => (
+              <List.Item key={email.id}>
+                <List.Content>
+                  <List.Header>Recipient: {email.recipient}</List.Header>
+                  <List.Description>
+                    <strong>Subject:</strong> {email.subject} <br />
+                    <strong>Body:</strong> {email.body} <br />
+                    <strong>Sent At:</strong> {new Date(email.sentAt).toLocaleString()}
+                  </List.Description>
+                </List.Content>
+              </List.Item>
+            ))
+          ) : (
+            <List.Item>No emails found</List.Item>
+          )}
+        </List>
+      </Segment>
+    </Container>
   );
 };
 

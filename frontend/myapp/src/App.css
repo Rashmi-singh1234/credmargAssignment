@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #506692;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,6 +22,12 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+.app-container {
+  
+  background-color: #f9f8fc; /* Grey background for the rest of the page */
+  min-height: 100vh; /* Ensure the background covers the full height */
+  padding: 20px; /* Add padding to the container */
 }
 
 .App-link {

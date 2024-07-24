@@ -15,7 +15,7 @@ function App(){
     <Router>
       <Routes>
         <Route path="/" element={
-          <div className="ui container">
+          <div className="app-container">
           <Header/>
           <div className="ui stackable grid">
             <div className="eight wide column">
@@ -27,10 +27,6 @@ function App(){
           </div>
         
             <EmailForm />
-        
-          <div className="ui segment">
-            <EmailHistory />
-          </div>
         </div>
         } />
         <Route 
@@ -43,6 +39,15 @@ function App(){
           path="/vendordata" 
           element={
               <VendorData/>
+          } 
+        />
+        <Route 
+          path="/mailhistory" 
+          element={
+          <div className="ui segment">
+          <EmailHistory />
+        </div>
+              
           } 
         />
       </Routes>

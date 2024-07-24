@@ -55,7 +55,7 @@ const VendorForm = () => {
           <input type="text" name="upi" placeholder="UPI" value={vendorData.upi} onChange={handleChange} required />
         </div>
         <button className="ui button blue" type="submit">Add</button>
-        <button className="ui button blue" onClick={handleView}>View</button>
+        <button className="ui button blue" onClick={handleView}>View Vendors</button>
       </form>
     </div>
   );

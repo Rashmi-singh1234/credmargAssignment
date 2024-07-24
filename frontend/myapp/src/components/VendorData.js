@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Container, Header, List, Message, Segment ,Label} from 'semantic-ui-react';
 
 const VendorData = () => {
   const [vendors, setVendors] = useState([]);
@@ -20,23 +21,27 @@ const VendorData = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Vendors Data</h2>
-      {error && <p>{error}</p>}
-      <ul>
-        {vendors.length > 0 ? (
-          vendors.map((vendor) => (
-            <li key={vendor.id}>
-              <strong>Name:</strong> {vendor.name} <br />
-              <strong>Email:</strong> {vendor.email} <br />
-              <strong>Upi:</strong> {vendor.upi} <br />
-            </li>
-          ))
-        ) : (
-          <li>No vendors Added</li>
-        )}
-      </ul>
-    </div>
+    <Container>
+      <Segment>
+        <Header as="h2">Vendors Data</Header>
+        {error && <Message error content={error} />}
+        <List divided relaxed>
+          {vendors.length > 0 ? (
+            vendors.map((vendor) => (
+              <List.Item key={vendor.id}>
+                <List.Content>
+                  <Label size="large">Name</Label> {vendor.name} &nbsp;
+                  <Label size="large">Upi</Label> {vendor.upi} &nbsp;
+                  <Label size="large">Email</Label> {vendor.email}
+                </List.Content>
+              </List.Item>
+            ))
+          ) : (
+            <List.Item>No Vendors added</List.Item>
+          )}
+        </List>
+      </Segment>
+    </Container>
   );
 };
 

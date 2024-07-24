@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, TextArea, Segment } from 'semantic-ui-react';
+import { useNavigate } from 'react-router-dom';
 
 const apiBaseUrl = process.env.API_BASE_URL;
 
@@ -19,6 +20,11 @@ const EmailForm = () => {
       alert('Failed to send email');
     }
   };
+   
+  const navigate=useNavigate();
+  const handleView=()=>{
+      navigate('mailhistory');
+  }
 
   const handleChange = (e) => {
     setRecipientEmails(e.target.value);
@@ -39,6 +45,7 @@ const EmailForm = () => {
           />
         </Form.Field>
         <Button type="submit" primary>Send Email</Button>
+        <button className="ui button blue" onClick={handleView}>View Mail History</button>
       </Form>
     </Segment>
   );

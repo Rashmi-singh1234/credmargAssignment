@@ -1,0 +1,13 @@
+/* Header.css */
+
+.header-container {
+    background-color: #000; /* Black background for the header */
+    padding: 15px 0; /* Add padding to the header */
+}
+
+.header-title {
+    color: #fff; /* White text color */
+    font-size: 3rem; /* Increase font size */
+    text-align: center; /* Center the text */
+    margin: 0; /* Remove default margin */
+}

@@ -1,10 +1,14 @@
 import React from 'react';
+import { Header as SemanticHeader } from 'semantic-ui-react';
+import './Header.css';
 
 const Header=()=>{
     return(
-        <div className="ui fixed menu">
+        <div className="ui fixed menu header-container">
             <div className="ui container center">
-                <h2>Credmarg Application</h2>
+                <SemanticHeader as="h1" className="header-title">
+                    Credmarg Application
+                </SemanticHeader>
             </div>
         </div>
     )
