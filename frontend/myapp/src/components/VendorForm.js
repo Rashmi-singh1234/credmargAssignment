@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const VendorForm = () => {
   const [vendorData, setVendorData] = useState({
@@ -23,6 +24,11 @@ const VendorForm = () => {
       alert('Failed to add vendor');
     }
   };
+  
+  const navigate=useNavigate();
+  const handleView=()=>{
+      navigate('vendordata');
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,6 +55,7 @@ const VendorForm = () => {
           <input type="text" name="upi" placeholder="UPI" value={vendorData.upi} onChange={handleChange} required />
         </div>
         <button className="ui button blue" type="submit">Add</button>
+        <button className="ui button blue" onClick={handleView}>View</button>
       </form>
     </div>
   );

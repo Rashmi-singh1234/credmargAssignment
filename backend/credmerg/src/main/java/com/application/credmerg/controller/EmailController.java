@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.application.credmerg.entity.Email;
-import com.application.credmerg.entity.EmailRequest;
 import com.application.credmerg.service.EmailService;
 
 @RestController

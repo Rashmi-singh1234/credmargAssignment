@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.application.credmerg.entity.Email;
-import com.application.credmerg.entity.EmailRequest;
 import com.application.credmerg.entity.Vendor;
 import com.application.credmerg.repository.EmailRepository;
 import com.application.credmerg.service.EmailService;

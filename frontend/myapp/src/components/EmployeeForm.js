@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const apiBaseUrl = process.env.API_BASE_URL;
 
@@ -35,7 +36,11 @@ const EmployeeForm = () => {
       [name]: value
     }));
   };
-
+  
+  const navigate=useNavigate();
+  const handleView=()=>{
+      navigate('employeedata');
+  }
   return (
     <div className="ui main">
     <h1>Add Employee</h1>
@@ -57,6 +62,7 @@ const EmployeeForm = () => {
       <input type="email" name="email" placeholder="Email" value={employeeData.email} onChange={handleChange} required />
       </div>
       <button className="ui button blue">Add</button>
+      <button className="ui button blue" onClick={handleView}>View</button>
     </form>
     </div>
   );
